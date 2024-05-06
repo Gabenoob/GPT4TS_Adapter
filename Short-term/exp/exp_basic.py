@@ -25,7 +25,9 @@ class Exp_Basic(object):
             'GPT4TS': GPT4TS,
         }
         self.device = self._acquire_device()
+        print("device selected")
         self.model = self._build_model().to(self.device)
+        print("model built")
 
     def _build_model(self):
         raise NotImplementedError

@@ -46,7 +46,7 @@ python -u run.py \
     --C_type 1 --T_type 1 --adapter_dim $adapter_dim --adapter_dropout 0.1 \
     --gpt_layers 6 --adapter_layer 6 \
     --scale $scale \
-    --spect_adapter_layer 6 > logs_final/$model_name'_'m4_Yearly_$lr'_'$adapter_dim'_'$scale.log
+    # --spect_adapter_layer 6 > logs_final/$model_name'_'m4_Yearly_$lr'_'$adapter_dim'_'$scale.log
 done
 done
 done
@@ -90,7 +90,7 @@ python -u run.py \
     --C_type 1 --T_type 1 --adapter_dim $adapter_dim --adapter_dropout 0.1 \
     --gpt_layers 6 --adapter_layer 6 \
     --scale $scale \
-    --spect_adapter_layer 6 > logs_final/$model_name'_'m4_Yearly_$lr'_'$adapter_dim'_'$scale.log
+    # --spect_adapter_layer 6 > logs_final/$model_name'_'m4_Yearly_$lr'_'$adapter_dim'_'$scale.log
 
 python -u run.py \
     --task_name short_term_forecast \
@@ -124,7 +124,7 @@ python -u run.py \
     --C_type 1 --T_type 1 --adapter_dim $adapter_dim --adapter_dropout 0.1 \
     --gpt_layers 6 --adapter_layer 6 \
     --scale $scale \
-    --spect_adapter_layer 6 > logs_final/$model_name'_'m4_Quarterly_$lr'_'$adapter_dim'_'$scale.log
+    # --spect_adapter_layer 6 > logs_final/$model_name'_'m4_Quarterly_$lr'_'$adapter_dim'_'$scale.log
 done
 done
 done

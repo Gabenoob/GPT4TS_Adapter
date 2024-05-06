@@ -1,0 +1,34 @@
+export CUDA_VISIBLE_DEVICES=0
+
+python -u run.py \
+    --task_name short_term_forecast \
+    --is_training 1 \
+    --root_path ../dataset/m4 \
+    --seasonal_patterns 'Yearly' \
+    --model_id m4_layer_2Yearly \
+    --model GPT4TS \
+    --data m4 \
+    --features M \
+    --e_layers 2 \
+    --d_layers 1 \
+    --factor 3 \
+    --enc_in 1 \
+    --dec_in 1 \
+    --c_out 1 \
+    --batch_size 128 \
+    --d_model 768 \
+    --d_ff 32 \
+    --patch_len 3 \
+    --patience 100 \
+    --train_epochs 200 \
+    --stride 1 \
+    --n_heads 16 \
+    --top_k 5 \
+    --des 'Exp' \
+    --itr 1 \
+    --lradj CARD \
+    --learning_rate 0.001 \
+    --loss 'SMAPE' --warmup_epochs 40 \
+    --C_type 1 --T_type 1 --adapter_dim 128 --adapter_dropout 0.1 \
+    --gpt_layers 6 --adapter_layer 6 \
+    --scale 1000 \

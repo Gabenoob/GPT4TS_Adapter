@@ -105,8 +105,9 @@ class Model(nn.Module):
         self.padding_patch_layer = nn.ReplicationPad1d((0, self.stride)) 
         if self.stride > 1 or self.patch_size > 1:
             self.patch_num += 1
-        
+        print("front")
         self.gpt2 = GPT2Model.from_pretrained('gpt2', output_attentions=True, output_hidden_states=True)  # loads a pretrained GPT-2 base model    
+        print("end")
         self.gpt2.h = self.gpt2.h[:configs.gpt_layers]
         for i in range(configs.gpt_layers):
             # self.gpt2.h[i].scale = configs.scale
