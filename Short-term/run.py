@@ -1,7 +1,7 @@
 import argparse
 import os
 import torch
-from exp.exp_main import Exp_Main
+from exp.exp_short_term_forecasting import Exp_Short_Term_Forecast
 import random
 import numpy as np
 
@@ -11,6 +11,8 @@ parser = argparse.ArgumentParser(description='Autoformer & Transformer family fo
 parser.add_argument('--random_seed', type=int, default=2021, help='random seed')
 
 # basic config
+parser.add_argument('--task_name', type=str, required=True, default='short_term_forecast',
+                        help='task name')
 parser.add_argument('--is_training', type=int, required=True, default=1, help='status')
 parser.add_argument('--model_id', type=str, required=True, default='test', help='model id')
 parser.add_argument('--model', type=str, required=True, default='Autoformer',
@@ -31,6 +33,7 @@ parser.add_argument('--checkpoints', type=str, default='./checkpoints/', help='l
 parser.add_argument('--seq_len', type=int, default=96, help='input sequence length')
 parser.add_argument('--label_len', type=int, default=48, help='start token length')
 parser.add_argument('--pred_len', type=int, default=96, help='prediction sequence length')
+parser.add_argument('--seasonal_patterns', type=str, default='Monthly', help='subset for M4')
 
 # GPT4TS
 parser.add_argument('--wpe', type=int, default=0, help='wpe')
@@ -43,6 +46,7 @@ parser.add_argument('--adapter_dim', type=int, default=32, help='adapter_dim')
 parser.add_argument('--adapter_dropout', type=float, default=0.05, help='adapter dropout')
 parser.add_argument('--scale', type=int, default=100, help='adapter dropout')
 parser.add_argument('--percent', type=int, default=100, help='adapter dropout')
+parser.add_argument('--top_k', type=int, default=5, help='for TimesBlock')
 
 # DLinear
 #parser.add_argument('--individual', action='store_true', default=False, help='DLinear: a linear layer for each variate(channel) individually')
@@ -138,7 +142,7 @@ if args.use_gpu and args.use_multi_gpu:
 print('Args in experiment:')
 print(args)
 
-Exp = Exp_Main
+Exp = Exp_Short_Term_Forecast
 
 if args.is_training:
     for ii in range(args.itr):
