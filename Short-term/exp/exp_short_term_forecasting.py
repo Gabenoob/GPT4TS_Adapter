@@ -107,7 +107,7 @@ class Exp_Short_Term_Forecast(Exp_Basic):
                     self.ratio = np.array([max(1/np.sqrt(i+1),0.0) for i in range(self.args.pred_len)])
                     self.ratio = torch.tensor(self.ratio).unsqueeze(-1).to('cuda')
 
-                    loss_value = criterion(self.ratio, self.args.frequency_map, outputs, batch_y, batch_y_mark,is_train = True)
+                    loss_value = criterion(self.ratio, self.args.frequency_map, outputs, batch_y, batch_y_mark)
                 else:
                     loss_value = criterion(batch_x, self.args.frequency_map, outputs, batch_y, batch_y_mark)
                 loss_sharpness = mse((outputs[:, 1:, :] - outputs[:, :-1, :]), (batch_y[:, 1:, :] - batch_y[:, :-1, :]))

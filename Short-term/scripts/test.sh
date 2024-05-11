@@ -31,4 +31,4 @@ python -u run.py \
     --loss 'SMAPE' --warmup_epochs 40 \
     --C_type 1 --T_type 1 --adapter_dim 128 --adapter_dropout 0.1 \
     --gpt_layers 6 --adapter_layer 6 \
-    --scale 1000 \
+    --scale 1000 

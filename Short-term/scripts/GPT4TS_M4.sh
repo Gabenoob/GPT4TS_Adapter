@@ -1,9 +1,5 @@
 export CUDA_VISIBLE_DEVICES=0
 
-if [ ! -d "./logs/ShortForecasting/" ]; then
-mkdir -p ./logs/ShortForecasting/
-fi
-
 
 
 model_name=GPT4TS
