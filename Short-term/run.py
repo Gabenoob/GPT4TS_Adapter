@@ -168,8 +168,8 @@ if args.is_training:
             args.des,ii)
 
         exp = Exp(args)  # set experiments
-        # print('>>>>>>>start training : {}>>>>>>>>>>>>>>>>>>>>>>>>>>'.format(setting))
-        # exp.train(setting)
+        print('>>>>>>>start training : {}>>>>>>>>>>>>>>>>>>>>>>>>>>'.format(setting))
+        exp.train(setting)
 
         # print('>>>>>>>testing : {}<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<'.format(setting))
         # exp.test(setting)
